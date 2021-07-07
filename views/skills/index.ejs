@@ -13,11 +13,11 @@
       <h2><%= error %></h2>
     <% } %>
     <ul>
-      <% todos.forEach(function(todo) { %>
+      <% skills.forEach(function(skill) { %>
         <li>
-          <%= todo.text %>
+          <a href="/skills/<%= skill._id %>"><%= skill.text %></a>
             - 
-          <%= todo.done ? 'done' : 'not done' %>
+          <%= skill.learned ? 'learned' : 'not learned' %>
         </li>
       <% }) %>
     </ul>
