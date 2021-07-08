@@ -8,18 +8,26 @@
     <title>Dev Skills Lab</title>
 </head>
 <body>
-    <h1>Dev Skills</h1>
+    <h1>Dev Skills as of <%= time %></h1>
     <% if(error) { %>
       <h2><%= error %></h2>
     <% } %>
     <ul>
       <% skills.forEach(function(skill) { %>
         <li>
+          <form 
+            action="/todos/<%= todo._id %>?_method=DELETE"
+            class="delete-form"
+            method="POST"
+          >
+            <button type="submit">X</button>
+          </form>
           <a href="/skills/<%= skill._id %>"><%= skill.text %></a>
             - 
           <%= skill.learned ? 'learned' : 'not learned' %>
         </li>
       <% }) %>
     </ul>
+    <a href="/skills/new">Add a Skill</a>
   </body>
 </html>
